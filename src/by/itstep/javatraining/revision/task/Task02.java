@@ -29,6 +29,9 @@ package by.itstep.javatraining.revision.task;
 
 public class Task02 {
     public static boolean task02(int number) {
-        return false;
+        if (number < 1){
+            return false;
+        }
+        return number == 1 || number == 2 || number / 2 % 2 == 0 && number % 10 != 0;
     }
 }
