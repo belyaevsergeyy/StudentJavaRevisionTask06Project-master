@@ -25,8 +25,32 @@ package by.itstep.javatraining.revision.task;
  *	[output 4]: -1
  */
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class Task07 {
     public static int task07(long number) {
-        return 0;
+        if (number < 0) {
+            number = -number;
+        }
+        ArrayList<Integer> list = new ArrayList<>();
+        if (number == 0) {
+            list.add(0);
+        }
+        while (number > 0) {
+            list.add((int) (number % 10));
+            number /= 10;
+        }
+        int max = Collections.max(list);
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) == max){
+                list.remove(i);
+                i--;
+            }
+        }
+        if (list.isEmpty()){
+            return -1;
+        }
+        return Collections.max(list);
     }
 }
