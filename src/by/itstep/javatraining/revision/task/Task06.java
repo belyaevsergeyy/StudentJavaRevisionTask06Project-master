@@ -27,8 +27,27 @@ package by.itstep.javatraining.revision.task;
  *	[output 4]: 4
  */
 
+
 public class Task06 {
     public static int task06(long number) {
-        return 0;
+        if (number < 0) {
+            number = -number;
+        }
+        if (number == 0) {
+            return 1;
+        }
+        int count = 0;
+        int min = (int) (number % 10);
+        while (number > 0) {
+            if (min == number % 10) {
+                count++;
+            } else if (number % 10 < min) {
+                count = 1;
+                min = (int) (number % 10);
+            }
+            number /= 10;
+        }
+        return count;
     }
+
 }

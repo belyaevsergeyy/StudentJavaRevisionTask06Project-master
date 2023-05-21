@@ -25,20 +25,18 @@ package by.itstep.javatraining.revision.task;
  */
 
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 public class Task05 {
     public static int task05(long number) {
         if (number < 0) {
             number = -number;
         }
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(0);
+        int max = (int) (number % 10);
         while (number > 0) {
-            list.add((int) (number % 10));
+            if (number % 10 >= max) {
+                max = (int) (number % 10);
+            }
             number /= 10;
         }
-        return Collections.max(list);
+        return max;
     }
 }
