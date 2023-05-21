@@ -40,6 +40,19 @@ package by.itstep.javatraining.revision.task;
 
 public class Task04 {
     public static long task04(int number) {
-        return 0;
+        if (number < 1 || number == 1) {
+            return number < 1 ? -1 : 0;
+        }
+        long x = 0;
+        long y = 1;
+        long a;
+
+        for (int i = 2; i < number; i++) {
+            a = y;
+            y = x + y;
+            x = a;
+
+        }
+        return y;
     }
 }
