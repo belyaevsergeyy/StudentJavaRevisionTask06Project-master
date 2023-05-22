@@ -47,6 +47,29 @@ package by.itstep.javatraining.revision.task;
 
 public class Task08 {
     public static int task08(long number) {
-        return 0;
+        if (number < 0) {
+            return -1;
+        }
+        if (number == 0 || number == 1){
+            return number == 0 ? 1 : 2;
+        }
+        long x = 0;
+        long y = 1;
+        long a;
+        int count = 1;
+
+        for (int i = 3; y < number; i++) {
+            a = y;
+            y = x + y;
+            x = a;
+            count = i;
+            if (y == number){
+                return count;
+            } else if (y > number) {
+                return -1;
+            }
+
+        }
+        return count;
     }
 }
