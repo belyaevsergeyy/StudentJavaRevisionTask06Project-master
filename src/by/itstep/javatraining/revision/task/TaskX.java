@@ -30,8 +30,34 @@ package by.itstep.javatraining.revision.task;
  *	[output 6]: true
  */
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class TaskX {
     public static boolean taskX(long number) {
-        return false;
+        if (number < 0) {
+            number = -number;
+        }
+        ArrayList<Integer> list = new ArrayList<>();
+        while (number > 0) {
+            list.add((int) (number % 10));
+            number /= 10;
+        }
+        if (list.size() < 2) {
+            return true;
+        }
+        Collections.sort(list);
+        int count = 1;
+        ArrayList<Integer> list1 = new ArrayList<>();
+        for (int i = 0; i < list.size() - 1; i++) {
+            if (list.get(i) == list.get(i + 1)){
+                count++;
+            } else {
+                list1.add(count);
+                count = 1;
+            }
+        }
+        list1.add(count);
+        return Collections.max(list1) == 1;
     }
 }
