@@ -31,8 +31,27 @@ package by.itstep.javatraining.revision.task;
  *	[output 5]: 0
  */
 
+import java.util.ArrayList;
+
 public class Task09 {
     public static int task09(long number) {
-        return 0;
+        if (number < 0) {
+            number = -number;
+        }
+        ArrayList<Integer> list = new ArrayList<>();
+        while (number > 0) {
+            list.add((int) (number % 10));
+            number /= 10;
+        }
+        int count = 0;
+        if (list.size() < 2) {
+            return count;
+        }
+        for (int i = 1; i < list.size() - 1; i++) {
+            if (list.get(i) > list.get(i - 1) && list.get(i) > list.get(i + 1)) {
+                count++;
+            }
+        }
+        return count;
     }
 }
